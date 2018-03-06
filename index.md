@@ -1,17 +1,14 @@
-## Welcome to GitHub Pages
+## 在一个千万级的数据库查寻中，高查询效率
 
-You can use the [editor on GitHub](https://github.com/wsj123/mysql-Large-data-optimization/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
 Syntax highlighted code block
 
-# Header 1
+# 数据库设计方面：
+1. 对查询进行优化，应尽量避免全表扫描，首先应考虑·在 where 及 order by 涉及的列上建立索引·
+2.应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如： select id from t where num is null 可以在num上设置默认值0，确保表中num列没有null值，然后这样查询： select id from t where num=0
 ## Header 2
 ### Header 3
 
